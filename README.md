@@ -2,6 +2,8 @@
 
 This is a dockerized version of github runner.
 
+It will auto-register to the repository given as a ENV parameter on docker run (see docker-compose example).
+
 Image on hub.docker.com: `redeaglekiller\github-action-runner`
 
 ## 1. Build arguments during docker build
