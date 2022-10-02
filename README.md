@@ -30,7 +30,7 @@ docker build --build-arg RUNNER_VERSION=2.297.0 -t github-action-runner:2.297.0-
 
 ```
 services:
-  runner-mangaDownloader:
+  runner-dockergithubactionrunner:
     deploy:
       replicas: 5
     image: redeaglekiller/github-action-runner-ubuntu:2.297.0-ubuntu22.04
