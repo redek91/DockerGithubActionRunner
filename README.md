@@ -45,7 +45,8 @@ docker run --name "runner-dockergithubactionrunner" -e GH_OWNER=redek91 -e GH_RE
 ```
 services:
   # Windows runner
-  runner-dockergithubactionrunner:
+  runner-dockergithubactionrunner-windows:
+    platform: windows
     deploy:
       replicas: 5
     image: redeaglekiller/github-action-runner-ubuntu:2.297.0-windowsltsc2022
@@ -54,7 +55,7 @@ services:
       - "GH_OWNER=redek91"
       - "GH_REPOSITORY=DockerGithubActionRunner"
   # Linux runner
-  runner-dockergithubactionrunner:
+  runner-dockergithubactionrunner-linux:
     platform: linux
     deploy:
       replicas: 5
