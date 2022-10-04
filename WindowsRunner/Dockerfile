@@ -40,9 +40,9 @@ RUN Invoke-WebRequest -Uri https://github.com/actions/runner/releases/download/v
   Remove-Item ".\\actions-runner.zip" -Force
 
 
-#USER ContainerAdministrator
-#RUN reg add hklm\system\currentcontrolset\services\cexecsvc /v ProcessShutdownTimeoutSeconds /t REG_DWORD /d 60
-#RUN reg add hklm\system\currentcontrolset\control /v WaitToKillServiceTimeout /t REG_SZ /d 60000 /f
+USER ContainerAdministrator
+RUN reg add hklm\system\currentcontrolset\services\cexecsvc /v ProcessShutdownTimeoutSeconds /t REG_DWORD /d 60
+RUN reg add hklm\system\currentcontrolset\control /v WaitToKillServiceTimeout /t REG_SZ /d 60000 /f
 
 COPY --from=wrapper-build /app/out .
 ADD scripts/start.ps1 .
