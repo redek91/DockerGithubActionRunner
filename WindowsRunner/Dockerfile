@@ -1,6 +1,6 @@
 # Powershell script wrapper to deal with dockerd not
 # waiting for gracefull stop
-FROM mcr.microsoft.com/dotnet/sdk:6.0 as wrapper-build
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS wrapper-build
 WORKDIR /app
 
 COPY ScriptWrapper/*.csproj .

@@ -19,13 +19,19 @@ RUN apt-get update -y && apt-get upgrade -y
 
 # Add dependencies
 RUN apt-get install -y --no-install-recommends \
-  curl \
+  build-essential \
   ca-certificates \
+  clang \
+  curl \
   jq \
   libicu70 \
   libssl3 \
+  libssl-dev \
   liblttng-ust1 \
   libkrb5-3 \
+  lld \
+  openssl \
+  pkg-config \
   zlib1g 
 
 # Download and unpack runner in executor home
@@ -49,6 +55,9 @@ ADD scripts/start.sh start.sh
 
 # make the script executable
 RUN chmod +x start.sh
+
+# Fix dos2unix
+RUN sed -i 's/\r//' start.sh
 
 # Set run user
 USER executor
